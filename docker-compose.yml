@@ -2,7 +2,7 @@ version: '3'
 services:
   couchdb:
     image: couchdb:latest
-    container_name: couchdb_container
+    container_name: couchdb
     ports:
       - "5984:5984"
     environment:
@@ -10,6 +10,13 @@ services:
       - COUCHDB_PASSWORD=password
     volumes:
       - couchdb_data:/opt/couchdb/data
+
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - couchdb
 
 volumes:
   couchdb_data:

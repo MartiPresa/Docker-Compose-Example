@@ -2,8 +2,8 @@ import PouchDB from 'pouchdb';
 import fs from 'fs';
 
 const port = "5984";
-// const DB_URL = 'http://couchdb_container:${port}/data';
-const DB_URL = `http://localhost:${port}/data`;
+// const DB_URL = 'http://couchdb:${port}/data';
+const DB_URL = 'http://localhost:${port}/data';
 const USER = 'admin';
 const PASSWORD = 'password';
 
@@ -38,6 +38,8 @@ const checkAndCreateDatabase = async () => {
                 await db.put({_id: 'dummy_doc', dummy: true});
                 console.log('Database created successfully.');
                 await db.remove('dummy_doc'); // Opcional: eliminar el documento dummy
+                 // Inicializar la base de datos
+                await initializeDatabase();
             } catch (createError) {
                 console.error('Error creating database:', createError);
             }
@@ -45,11 +47,9 @@ const checkAndCreateDatabase = async () => {
             console.error('Error checking database:', infoError);
         }
     }
-
-    // Inicializar la base de datos
-    await initializeDatabase();
 };
 
 checkAndCreateDatabase();
 
-export default db;
+export {db};
+// export { db as PouchDB };

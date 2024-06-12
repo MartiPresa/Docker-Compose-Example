@@ -1,0 +1,14 @@
+{
+    "name": "frontend",
+    "version": "1.0.0",
+    "description": "Frontend for the Docker Compose Example",
+    "main": "fetchdata.js",
+    "type": "module",
+    "scripts": {
+      "start": "node fetchdata.js"
+    },
+    "dependencies": {
+      "axios": "^1.7.2"
+    }
+  }
+  

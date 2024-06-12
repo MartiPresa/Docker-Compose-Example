@@ -1,6 +1,7 @@
-const { Request, Response } = require('express');
-const { db } = require('../database/db');
-// const { Juego } = require('../model/juego.interface');
+// const { db } = require('../database/db.js');
+import dockerCompose from 'docker-compose';
+import { logs } from 'docker-compose';
+import { db } from '../database/db.js';
 
 class dataManager {
     constructor() {}
@@ -21,7 +22,8 @@ class dataManager {
         try {
             const result = await db.put({
                 _id: new Date().toISOString(),
-                ...data
+                firstName: data.firstName,
+                lastName: data.lastName
             });
             return result;
         } catch (error) {
@@ -30,4 +32,4 @@ class dataManager {
     }
 }
 
-export const dataManager = new dataManager();
+export const dataM = new dataManager();
