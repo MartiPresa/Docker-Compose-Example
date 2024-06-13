@@ -9,7 +9,7 @@ const PORT = 3000;
 // Middleware para parsear el cuerpo de las solicitudes como JSON
 app.use(express.json());
 app.use(bodyParser.json()); // Configuración para parsear JSON
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 // Ruta para obtener todos los documentos

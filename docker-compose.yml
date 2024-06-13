@@ -1,6 +1,7 @@
 version: '3'
 services:
   couchdb:
+    restart: always
     image: couchdb:latest
     container_name: couchdb
     ports:
