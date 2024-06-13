@@ -18,6 +18,8 @@ services:
       - "3000:3000"
     depends_on:
       - couchdb
+    environment:
+      - COUCHDB_URL=http://couchdb:5984
 
 volumes:
   couchdb_data:

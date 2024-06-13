@@ -1,8 +1,8 @@
 import PouchDB from 'pouchdb';
 import fs from 'fs';
 
-// const DB_URL = 'http://couchdb:${port}/data';
-const DB_URL = 'http://localhost:5984/data';
+const DB_URL = 'http://couchdb:5984/data';
+// const DB_URL = 'http://localhost:5984/data';
 const USER = 'admin';
 const PASSWORD = 'password';
 
