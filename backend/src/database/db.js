@@ -24,7 +24,6 @@ const initializeDatabase = async () => {
     }
 };
 
-// await initializeDatabase();
 const checkIfDbIsEmpty = async () => {
     try {
         const dbInfo = await db.info();
@@ -41,31 +40,4 @@ const checkIfDbIsEmpty = async () => {
 
 await checkIfDbIsEmpty();
 
-// const checkAndCreateDatabase = async () => {
-//     try {
-//         // Verificar si la base de datos existe
-//         const dbInfo = await db.info();
-//         console.log('Database exists:', dbInfo);
-//     } catch (infoError) {
-//         if (infoError.status === 404) {
-//             console.log('Database does not exist. Creating...');
-//             try {
-//                 // Crear un documento dummy para inicializar la base de datos
-//                 await db.put({_id: 'dummy_doc', dummy: true});
-//                 console.log('Database created successfully.');
-//                 await db.remove('dummy_doc'); // Opcional: eliminar el documento dummy
-//                  // Inicializar la base de datos
-//                 await initializeDatabase();
-//             } catch (createError) {
-//                 console.error('Error creating database:', createError);
-//             }
-//         } else {
-//             console.error('Error checking database:', infoError);
-//         }
-//     }
-// };
-
-// checkAndCreateDatabase();
-
 export {db};
-// export { db as PouchDB };

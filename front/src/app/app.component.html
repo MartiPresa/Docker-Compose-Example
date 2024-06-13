@@ -6,11 +6,18 @@
 </nav>
 <div class="container">
   <div class="row">
+    
     <!-- <div class="col-md-4">
       image: <img src="assets/img/docker.png" width="100" height="100" class="d-inline-block align-top" alt="">
     </div> -->
-    <div class="col-md-8">
+    <div class="col-md-8 mt-4">
       <ul class="list-group">
+        <li 
+        *ngFor="let log of logArray"
+        class="list-group-item list-group-item-action">
+        <span class="badge text-dark"> {{log.id}} </span> 
+        {{log.user}} - {{log.fechaHora}} - {{log.tipoAcceso}}
+      </li>
 
       </ul>
       <div class="card mt-4">
@@ -18,7 +25,21 @@
           <div class="card-title">
             Agregar doc a la base de datos
           </div>
+          <div class="form-group mt-4">
+            <input type="text" class="form-control" placeholder="Insertar Id" [(ngModel)]="selectedLog.id">
+          </div>
+          <div class="form-group mt-1">
+            <input type="text" class="form-control" placeholder="Insertar Usuario" [(ngModel)]="selectedLog.user">
         </div>
+        <div class="form-group mt-1">
+          <input type="text" class="form-control" placeholder="Insertar Fecha y hora" [(ngModel)]="selectedLog.fechaHora">
+        </div>
+        <div class="form-group mt-1">
+          <input type="text" class="form-control" placeholder="Insertar Tipo de acceso" [(ngModel)]="selectedLog.tipoAcceso">
+      </div>
+      <button (click)="addDoc()" class="btn btn-primary">
+        Submit
+      </button>
       </div>
     </div>
   </div>

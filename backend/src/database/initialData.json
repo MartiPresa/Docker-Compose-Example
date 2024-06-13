@@ -1,28 +1,32 @@
 [
-    {
-      "_id": "1",
-      "firstName": "John",
-      "lastName": "Doe"
-    },
-    {
-      "_id": "2",
-      "firstName": "Jane",
-      "lastName": "Smith"
-    },
-    {
-      "_id": "3",
-      "firstName": "Alice",
-      "lastName": "Johnson"
-    },
-    {
-      "_id": "4",
-      "firstName": "Bob",
-      "lastName": "Brown"
-    },
-    {
-      "_id": "5",
-      "firstName": "Charlie",
-      "lastName": "Davis"
-    }
-  ]
-  
+  {
+      "id": 1,
+      "user": "usuario123",
+      "fechaHora": "2024-06-13T10:30:00Z",
+      "tipoAcceso": "exitoso"
+  },
+  {
+      "id": 2,
+      "user": "usuario456",
+      "fechaHora": "2024-06-13T11:00:00Z",
+      "tipoAcceso": "denegado"
+  },
+  {
+      "id": 3,
+      "user": "usuario789",
+      "fechaHora": "2024-06-13T11:30:00Z",
+      "tipoAcceso": "exitoso"
+  },
+  {
+      "id": 4,
+      "user": "usuario101",
+      "fechaHora": "2024-06-13T12:00:00Z",
+      "tipoAcceso": "denegado"
+  },
+  {
+      "id": 5,
+      "user": "usuario102",
+      "fechaHora": "2024-06-13T12:30:00Z",
+      "tipoAcceso": "exitoso"
+  }
+]
