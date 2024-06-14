@@ -36,7 +36,7 @@ Ensure you have Docker and Docker Compose installed on your system. If not, foll
 
 Run the following command to start the services defined in docker-compose.yml:
 ```Bash
-docker-compose up
+docker-compose up ---build
 ```
 ### Author   
 @MartiPresa
