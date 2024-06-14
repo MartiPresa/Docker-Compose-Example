@@ -1,54 +1,49 @@
-import { Component } from '@angular/core';
-// import { RouterOutlet } from '@angular/router';
-import {Log} from './models/log';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { DataService } from './services/log.service';
-// import {DataService} from './services/log.service';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import {Log} from './models/log';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { interval } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    HttpClientModule
-    // ,
-    // MainPageComponent
-  ],
-  // imports: [RouterOutlet],
+  imports: [CommonModule, HttpClientModule,FormsModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'front';
-  logArray: Log[]=[
-    {
-        "id": 1,
-        "user": "UsuarioPrueba",
-        "fechaHora": "2024-06-13T10:30:00Z",
-        "tipoAcceso": "exitoso"
-    },
-    {
-        "id": 2,
-        "user": "UsuarioPrueba2",
-        "fechaHora": "2024-06-13T11:00:00Z",
-        "tipoAcceso": "denegado"
-    }
-];
+export class AppComponent implements OnInit {
+  httpClient = inject(HttpClient);
+  data: any[] = [];
   selectedLog: Log = new Log();
 
-
-  addDoc() {
-    this.selectedLog.id = this.logArray.length + 1;
-    this.logArray.push(this.selectedLog);
-    this.selectedLog = new Log();
+  ngOnInit(): void {
+    this.fetchData();
   }
 
-  // constructor(private dataService: DataService) {
-  //   this.logArray = this.dataService.fetchAllLogs();
-  // }
+  fetchData() {
+    this.httpClient
+      .get('http://localhost:3000/data')
+      .subscribe((data: any) => {
+        console.log(data);
+        this.data = data;
+      });
+  }
+
+  addDoc() {
+    console.log('Posting document:', this.selectedLog);
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    this.httpClient.post('http://localhost:3000/data', this.selectedLog, { headers }).subscribe(
+      (res: any) => {
+        console.log('Document posted successfully:', res);
+        this.fetchData(); // Refresh data after successful post
+        this.selectedLog = new Log(); // Reset selectedLog
+      },
+      (error: any) => {
+        console.error('Error posting document:', error);
+      }
+    );
+  }
+
 }
-
-

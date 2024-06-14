@@ -21,5 +21,12 @@ services:
     environment:
       - COUCHDB_URL=http://couchdb:5984
 
+  frontend:
+    build: ./front
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
+
 volumes:
   couchdb_data:

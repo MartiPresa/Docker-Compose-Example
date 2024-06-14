@@ -18,9 +18,9 @@ const initializeDatabase = async () => {
     try {
         const data = JSON.parse(fs.readFileSync('initialData.json', 'utf8'));
         const result = await db.bulkDocs(data);
-        console.log('Database initialized with initial data:', result);
+        console.log('DB inicializada:', result);
     } catch (error) {
-        console.error('Error initializing database with initial data:', error);
+        console.error('Error inicializando DB:', error);
     }
 };
 

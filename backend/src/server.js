@@ -6,13 +6,11 @@ import bodyParser from 'body-parser';
 const app = express();
 const PORT = 3000;
 
-// Middleware para parsear el cuerpo de las solicitudes como JSON
 app.use(express.json());
-app.use(bodyParser.json()); // Configuración para parsear JSON
+app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-// Ruta para obtener todos los documentos
 app.get('/data', async (req, res) => {
     try {
         console.log('llegue');
@@ -24,10 +22,9 @@ app.get('/data', async (req, res) => {
     }
 });
 
-// Ruta para crear un nuevo documento
 app.post('/data', async (req, res) => {
     try {
-        console.log("INSERTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        console.log("INSERTA "+JSON.stringify(req.body));
         const result = await dataM.insertDocument(req.body);
         res.json(result);
     } catch (error) {

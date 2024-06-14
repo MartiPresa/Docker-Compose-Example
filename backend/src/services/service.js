@@ -1,12 +1,16 @@
-// const { db } = require('../database/db.js');
 import dockerCompose from 'docker-compose';
 import { logs } from 'docker-compose';
 import { db } from '../database/db.js';
-
+  
 class dataManager {
-    constructor() {}
-
-    // Función para traer todos los documentos
+    constructor() {
+        this.lastId = 0;
+    }
+     generateId() {
+        lastId++;
+        return 'ID_' + lastId;
+      }
+    
     async fetchAllDocuments() {
         try {
             const result = await db.allDocs({ include_docs: true });
@@ -17,13 +21,15 @@ class dataManager {
         }
     }
 
-    // Función para insertar un documento
     async insertDocument(data) {
         try {
+            console.log("data service inserta"+JSON.stringify(data));
             const result = await db.put({
                 _id: new Date().toISOString(),
-                firstName: data.firstName,
-                lastName: data.lastName
+                // _id: this.generateId(),
+                user: data.user,
+                fechaHora: new Date().toISOString(),
+                tipoAcceso: data.tipoAcceso
             });
             return result;
         } catch (error) {

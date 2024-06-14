@@ -1,32 +1,14 @@
 [
   {
       "id": 1,
-      "user": "usuario123",
+      "user": "UsuarioBaseDatos",
       "fechaHora": "2024-06-13T10:30:00Z",
       "tipoAcceso": "exitoso"
   },
   {
       "id": 2,
-      "user": "usuario456",
+      "user": "UsuarioBaseDatos2",
       "fechaHora": "2024-06-13T11:00:00Z",
       "tipoAcceso": "denegado"
-  },
-  {
-      "id": 3,
-      "user": "usuario789",
-      "fechaHora": "2024-06-13T11:30:00Z",
-      "tipoAcceso": "exitoso"
-  },
-  {
-      "id": 4,
-      "user": "usuario101",
-      "fechaHora": "2024-06-13T12:00:00Z",
-      "tipoAcceso": "denegado"
-  },
-  {
-      "id": 5,
-      "user": "usuario102",
-      "fechaHora": "2024-06-13T12:30:00Z",
-      "tipoAcceso": "exitoso"
   }
 ]
