@@ -16,9 +16,9 @@ The project consists of the following components:
 
 Docker Compose is a tool for defining and running multi-container Docker applications. In this repository, you'll find a 3-service architecture, including:
 
-- A CouchDB database.
-- A simple web interface using Angular.
-- A server using Express.js.
+CouchDB database: Accessible at port 5984.
+Frontend (Angular): Accessible at port 4200.
+Backend (Express.js): Accessible at port 3000.
 
 ## Deployment
 
