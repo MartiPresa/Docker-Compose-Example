@@ -1,8 +1,9 @@
 version: '3'
 services:
   couchdb:
+    restart: always
     image: couchdb:latest
-    container_name: couchdb_container
+    container_name: couchdb
     ports:
       - "5984:5984"
     environment:
@@ -10,6 +11,22 @@ services:
       - COUCHDB_PASSWORD=password
     volumes:
       - couchdb_data:/opt/couchdb/data
+
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - couchdb
+    environment:
+      - COUCHDB_URL=http://couchdb:5984
+
+  frontend:
+    build: ./front
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
 
 volumes:
   couchdb_data:

@@ -1,17 +1,8 @@
 {
-  "name": "docker-compose-example",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "fs": "^0.0.1-security",
-    "pouchdb": "^8.0.1"
+    "axios": "^1.7.2",
+    "bootstrap": "^5.3.3",
+    "docker-compose": "^0.24.8"
   }
 }

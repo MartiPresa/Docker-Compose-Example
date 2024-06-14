@@ -1,28 +1,14 @@
 [
-    {
-      "_id": "1",
-      "firstName": "John",
-      "lastName": "Doe"
-    },
-    {
-      "_id": "2",
-      "firstName": "Jane",
-      "lastName": "Smith"
-    },
-    {
-      "_id": "3",
-      "firstName": "Alice",
-      "lastName": "Johnson"
-    },
-    {
-      "_id": "4",
-      "firstName": "Bob",
-      "lastName": "Brown"
-    },
-    {
-      "_id": "5",
-      "firstName": "Charlie",
-      "lastName": "Davis"
-    }
-  ]
-  
+  {
+      "id": 1,
+      "user": "UsuarioBaseDatos",
+      "fechaHora": "2024-06-13T10:30:00Z",
+      "tipoAcceso": "exitoso"
+  },
+  {
+      "id": 2,
+      "user": "UsuarioBaseDatos2",
+      "fechaHora": "2024-06-13T11:00:00Z",
+      "tipoAcceso": "denegado"
+  }
+]

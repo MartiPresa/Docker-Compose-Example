@@ -1,0 +1,46 @@
+<nav class="navbar navbar-dark bg-primary">
+ <a class= "navbar-brand" href="">
+  Docker compose example
+ </a> 
+</nav>
+<div class="container">
+  <div class="row">
+  
+    <div class="col-md-8 mt-4">
+      <ul class="list-group">
+        <li 
+        *ngFor="let log of data"
+        class="list-group-item list-group-item-action">
+        <!-- <span class="badge text-dark"> {{log.id}} </span>  -->
+        {{log.user}} - {{log.fechaHora}} - {{log.tipoAcceso}}
+      </li>
+
+      </ul>
+      <div class="card mt-4">
+        <div class="card-body">
+          <div class="card-title">
+            Agregar doc a la base de datos
+          </div>
+          <div class="form-group mt-1">
+            <input type="text" class="form-control" placeholder="Insertar Usuario" [(ngModel)]="selectedLog.user">
+        </div>
+        <div class="form-group mt-1">
+          <input type="text" class="form-control" placeholder="Insertar Tipo de acceso" [(ngModel)]="selectedLog.tipoAcceso">
+      </div>
+      <div class="container">
+        <div class="row mt-3">
+          <div class="col d-flex justify-content-between">
+            <button (click)="addDoc()" class="btn btn-primary">
+              Submit
+            </button>
+            <button (click)="fetchData()" class="btn btn-primary">
+              Fetch data
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      </div>
+    </div>
+  </div>
+</div>
